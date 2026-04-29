@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iAgencyAIA — Ecosystem Map</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; color: #e0e0e0; font-family: 'Sukhumvit Set', -apple-system, sans-serif; min-height: 100vh; }
+
+  /* Password gate */
+  #gate {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 20px;
+  }
+  #gate .logo { font-size: 2rem; margin-bottom: 8px; }
+  #gate h1 { font-size: 1.3rem; margin-bottom: 4px; }
+  #gate .sub { color: #B2475D; font-size: 0.85rem; margin-bottom: 30px; }
+  #gate input {
+    background: #2a2a2a; border: 1px solid #444; color: #fff; padding: 12px 20px;
+    border-radius: 12px; font-size: 1rem; width: 260px; text-align: center; margin-bottom: 12px;
+    font-family: inherit;
+  }
+  #gate input:focus { outline: none; border-color: #F5C518; }
+  #gate button {
+    background: #F5C518; color: #1a1a1a; border: none; padding: 10px 32px;
+    border-radius: 12px; font-size: 0.95rem; font-weight: bold; cursor: pointer; font-family: inherit;
+  }
+  #gate .error { color: #CC0000; font-size: 0.8rem; margin-top: 8px; display: none; }
+
+  #content { display: none; padding: 40px 20px; }
+
+  h1.title { text-align: center; font-size: 1.8rem; margin-bottom: 8px; color: #fff; }
+  .subtitle { text-align: center; color: #B2475D; font-size: 0.95rem; margin-bottom: 40px; }
+  .flow-bar { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 30px auto; max-width: 1000px; flex-wrap: wrap; }
+  .flow-bar .step { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 8px 18px; border-radius: 12px; font-size: 0.85rem; text-align: center; }
+  .flow-bar .arrow { color: #F5C518; font-size: 1.2rem; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px auto 20px; max-width: 1100px; }
+  .legend .item { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; }
+  .legend .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1100px; margin: 0 auto; }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+  .card { border-radius: 14px; padding: 20px; transition: transform 0.2s; }
+  .card:hover { transform: translateY(-2px); }
+  .card h2 { font-size: 1.05rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .card h3 { font-size: 0.85rem; color: rgba(255,255,255,0.9); margin: 10px 0 5px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 3px; }
+  .card ul { list-style: none; padding-left: 0; }
+  .card li { font-size: 0.8rem; padding: 2px 0; color: rgba(255,255,255,0.8); }
+  .card li::before { content: '•'; color: rgba(255,255,255,0.35); margin-right: 6px; }
+  .tag { display: inline-block; font-size: 0.68rem; background: rgba(255,255,255,0.15); padding: 2px 8px; border-radius: 99px; margin: 2px; }
+  .card.full-width { grid-column: 1 / -1; }
+  .career-path { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
+  .career-path .step { background: rgba(255,255,255,0.15); padding: 5px 12px; border-radius: 10px; font-size: 0.78rem; white-space: nowrap; }
+  .career-path .arrow { color: rgba(255,255,255,0.4); font-size: 1rem; }
+  .quiz-hidden { background: rgba(0,0,0,0.25); border-radius: 10px; padding: 10px 14px; margin-top: 8px; border-left: 3px solid rgba(255,255,255,0.3); }
+  .quiz-hidden .label { font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+  .footer { text-align: center; margin-top: 40px; font-size: 0.7rem; color: #555; }
+
+  .c-marketing { background: linear-gradient(135deg, #1B5E3B, #2D8B5A); }
+  .c-tools { background: linear-gradient(135deg, #4A3520, #7A5A3A); }
+  .c-develop { background: linear-gradient(135deg, #8B1A2B, #C0334D); }
+  .c-recruit { background: linear-gradient(135deg, #1A3A5A, #2A6A9A); }
+  .c-support-al { background: linear-gradient(135deg, #3A2050, #6A3A8A); }
+  .c-support-agent { background: linear-gradient(135deg, #5A2030, #8A3A50); }
+  .c-partner { background: linear-gradient(135deg, #5A5A1A, #8A8A3A); }
+  .c-office { background: linear-gradient(135deg, #2A3A4A, #3A5A6A); }
+  .c-club { background: linear-gradient(135deg, #2A4A3A, #3A6A5A); }
+  .c-recruit-al { background: linear-gradient(135deg, #3A2A4A, #5A4A6A); }
+</style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div id="gate">
+  <div class="logo">🌅</div>
+  <h1>iAgencyAIA Ecosystem Map</h1>
+  <div class="sub">กรุณาใส่รหัสผ่าน</div>
+  <input type="password" id="pw" placeholder="รหัสผ่าน" onkeydown="if(event.key==='Enter')unlock()">
+  <button onclick="unlock()">เข้าดูผัง</button>
+  <div class="error" id="err">รหัสไม่ถูกต้อง</div>
+</div>
+
+<!-- Protected Content -->
+<div id="content">
+
+<h1 class="title">iAgencyAIA.com</h1>
+<div class="subtitle">ตัวแทนประกันมืออาชีพ ที่คุณไว้วางใจ</div>
+
+<div class="flow-bar">
+  <div class="step">🔍 Marketing<br><small>คนค้นพบเรา</small></div>
+  <div class="arrow">→</div>
+  <div class="step">👥 Recruit<br><small>คัดกรอง iJourney</small></div>
+  <div class="arrow">→</div>
+  <div class="step">🎯 พัฒนาตัวแทน<br><small>อบรม+เครื่องมือ</small></div>
+  <div class="arrow">→</div>
+  <div class="step">📈 เส้นทางอาชีพ<br><small>FA → DM → LOD</small></div>
+</div>
+
+<div class="legend">
+  <div class="item"><div class="dot" style="background:#2D8B5A"></div> Marketing</div>
+  <div class="item"><div class="dot" style="background:#7A5A3A"></div> เครื่องมือ</div>
+  <div class="item"><div class="dot" style="background:#C0334D"></div> พัฒนาตัวแทน</div>
+  <div class="item"><div class="dot" style="background:#2A6A9A"></div> Recruit</div>
+  <div class="item"><div class="dot" style="background:#6A3A8A"></div> สนับสนุน AL</div>
+  <div class="item"><div class="dot" style="background:#8A3A50"></div> สนับสนุนตัวแทน</div>
+  <div class="item"><div class="dot" style="background:#8A8A3A"></div> Partner</div>
+  <div class="item"><div class="dot" style="background:#3A5A6A"></div> ทีมสำนักงาน</div>
+  <div class="item"><div class="dot" style="background:#3A6A5A"></div> สโมสร</div>
+  <div class="item"><div class="dot" style="background:#5A4A6A"></div> Recruit AL</div>
+</div>
+
+<div class="grid">
+  <div class="card c-marketing"><h2>🔍 Marketing & Branding</h2><h3>Search Engine & AI Search</h3><ul><li>iAgencyAIA.com</li><li>Prestige.iAgencyAIA.com</li><li>Lead Generation & FA Personal Branding</li></ul><h3>Social Media</h3><ul><li>iAgency FB & TikTok</li><li>AIA iSay</li><li>iAgency Template & AI</li></ul><h3>Content</h3><ul><li>Content by iAgencyAIA → LINE OA @iAgencyAIA</li><li>Content by FA → Direct to FA</li></ul><h3>เป้าหมาย</h3><div><span class="tag">Awareness</span> <span class="tag">Trust</span> <span class="tag">🍷 Elite Advisor & Trusted FA</span></div></div>
+
+  <div class="card c-recruit"><h2>👥 Recruit</h2><h3>เครื่องมือ Recruit</h3><ul><li>iJourney</li><li>LINE OA @iRecruit</li></ul><h3>แบบทดสอบคุณสมบัติ (5 ข้อ)</h3><div class="quiz-hidden"><div class="label">🔒 เกณฑ์เบื้องหลัง (ไม่แสดงผู้ทำ)</div><ul><li>1. มีเป้าหมาย</li><li>2. มีร่องรอยความสำเร็จ</li><li>3. มีฐานตลาด</li><li>4. มี Soft Skill (ขาย)</li><li>5. มีเวลา</li><li>+ รับผิดชอบ</li></ul></div><h3>แบ่งผล 4 กลุ่ม</h3><div><span class="tag">FA - Potential</span> <span class="tag">FA - Standard</span> <span class="tag">SA - Potential</span> <span class="tag">SA - Standard</span></div><h3>ต่อเนื่อง</h3><ul><li>เครื่องคิดเลข คำนวณรายได้</li><li>→ iProcess แผนการทำงานเฉพาะบุคคล</li></ul></div>
+
+  <div class="card c-develop"><h2>🎯 พัฒนาตัวแทน</h2><h3>ตัวแทนใหม่</h3><ul><li>Orientation Day — iAgencyAIA คืออะไร ทำอะไร มีอะไรบ้าง และ ต้องทำอะไรบ้าง</li><li>หลักสูตร iAcademy: สิทธิ์การขาย, ประกันสุขภาพ & เคลม, การเคลม, FUFT</li><li>R2 / D18</li><li>iAgencyAIA iProcess: ทบทวนแบบประกัน, Sale Process & MANHA, FA Tools, Action Plan, One on One</li><li>กิจกรรม: ประชุมทีม, Rookie & Active Club, เข้าค่าย New Agent</li><li>เครื่องมือ FHC by iAgencyAIA</li><li>มีผลงานภายใน 2 เดือนหลังได้รับรหัสตัวแทน</li></ul><h3>ยกระดับตัวแทน</h3><ul><li>ความรู้ตลอดเวลา: iAcademy, AIA One, Agent Website, LINE IMO Smart</li><li>One on One</li><li>ประชุมทีม / สโมสร (ทีม 3-20 คน / สำนักงาน)</li><li>เข้าโปรแกรม FA</li><li>สัมนา: D18 & R2 (Health & Wealth, BOP, อังคาร รีครูท, Elite Club)</li></ul></div>
+
+  <div class="card c-tools"><h2>🛠️ เครื่องมือ</h2><h3>iAgencyAIA เครื่องมือใช้ไว้</h3><ul><li><strong>1. Branding & Culture</strong> — 1.1 Website, 1.2 Social Media, 1.3 System</li><li><strong>2. Office (On Process)</strong> — 2.1 Culture, 2.2 Training, 2.3 Team, 2.4 BOP</li><li><strong>3. FA Tools</strong> — 3.1 Sale Tools (iCheck / iQuick / iPlan / iCompare), 3.2 Recruit Tools (iCareer), 3.3 Agent Development Tools (iProcess)</li></ul><h3>เสนอขาย & บริการลูกค้า</h3><ul><li>AIA One</li><li>AIA IMO</li></ul><h3>เครื่องมือเปิดใจ</h3><ul><li>iAgencyAIA - Website & Social</li><li>iAgencyAIA - FA Tools</li><li>iAgencyAIA - FHC</li></ul><h3>Recruit</h3><ul><li>AIA iRecruit</li></ul><h3>Social Media</h3><ul><li>iAgencyAIA Presentation & Template</li><li>iAgency FB & TikTok</li><li>AIA iSay</li></ul></div>
+
+  <div class="card c-support-al"><h2>👔 สนับสนุน AL (หัวหน้าหน่วย)</h2><h3>สนับสนุน AL</h3><ul><li>วัฒนธรรม จริงใจ ลงมือ อยู่ด้วยกัน</li><li>มีหน้าที่ และ ความรับผิดชอบส่วนกลาง</li><li>สนับสนุนค่าใช้จ่าย แข่งขัน ท้าทายพิเศษ (ร่วมกับ สนง.)</li><li>ประชุม ข้อเสนอแนะ และ พัฒนา ส่วนกลางร่วมกัน</li></ul><h3>ค่าใช้จ่าย AL บำรุง สนง.</h3><ul><li>ประจำเดือน (ส่วนกลาง)</li><li>กิจกรรมพิเศษ (ส่วนตัว)</li><li>ท้าทายพิเศษร่วมกับ สนง.</li><li>กิจกรรมร่วมกับ สนง.</li><li>อื่นๆ</li></ul><h3>สนับสนุนตัวแทนทุกคน</h3><ul><li>เครื่องมือ FA Tools</li><li>ช่วยตัวแทนสร้างตัวตน</li><li>สนับสนุน ท้าทายพิเศษ</li><li>ระบบพัฒนาตัวแทน (พื้นฐานทั่วไป)</li></ul><h3>Operation Support</h3><ul><li>เอกสาร และ ข้อมูลทั่วไป</li></ul></div>
+
+  <div class="card c-support-agent"><h2>🤝 สนับสนุนตัวแทน iAgencyAIA</h2><h3>ผู้ช่วยดูแล และ สนับสนุน</h3><ul><li>ประกันชีวิตปีแรก</li><li>บริการหลังการขาย / ประกันชีวิตปีต่ออายุ</li><li>เอกสาร และ ใบอนุญาต</li><li>สนับสนุนทั่วไป อื่นๆ (ตามแนวทางของ iAgencyAIA)</li></ul><h3>เครื่องมือการทำงาน</h3><ul><li>เฉพาะตัวแทน iAgencyAIA</li></ul><h3>วัฒนธรรม และ บรรยากาศ</h3><ul><li>"จริงใจ ลงมือ อยู่ด้วยกัน"</li></ul></div>
+
+  <div class="card c-office"><h2>🏢 ทีมสำนักงาน</h2><h3>งานเอกสาร</h3><ul><li>ครูปี่ Memo จากระบบ (ประกันชีวิตปีแรก และ ต่ออายุ/ปรับเปลี่ยน)</li><li>ส่งเอกสาร จากปัญหา ให้สำนักงานใหญ่</li><li>รายเดือน และ เอกสาร สำคัญ ใหญ่ สัปดาห์ละ 1 ครั้ง</li></ul><h3>งานรับสมัครตัวแทน</h3><ul><li>ใบอนุญาต & นิติกรรม & เอกสาร</li></ul><h3>ตำแหน่ง</h3><div><span class="tag">Graphic</span> <span class="tag">Operation</span> <span class="tag">Marketing</span> <span class="tag">Asst. Manager ใหม่</span> <span class="tag">Manager เดิม</span></div><h3>อื่นๆ</h3><ul><li>บริการของแถม ออฟไลน์</li><li>ผู้รับเหมา BOB</li><li>ประกันอัคคีภัย ออฟไลน์</li></ul></div>
+
+  <div class="card c-club"><h2>🏆 สโมสร และ สนับสนุน</h2><h3>สนับสนุนค่าใช้จ่าย</h3><ul><li>สนับสนุนค่าใช้จ่าย FA (ส่วนกลาง)</li><li>สนับสนุนค่าใช้จ่ายปัญหา SA (ส่วนกลาง)</li><li>ประกันชีวิต (AL สนับสนุน)</li></ul><h3>สโมสร</h3><div><span class="tag">Champion</span> <span class="tag">Quarterly Club</span></div><h3>แผน</h3><ul><li>Mid Year & Year Plan</li><li>การรับสืบ และ จ่ายปี</li></ul><h3>ชั้นอุป AL</h3><ul><li>ราย 1 เดือน ร่วมจ่าย ราย 6 เดือน</li></ul></div>
+
+  <div class="card c-recruit-al"><h2>📋 Recruit & Training AL</h2><h3>AL ทุกคนต้องทำงาน</h3><ul><li>แผนการรับสมัคร AL เข้าร่วม</li><li>AL ทุกคนต้องทำงานส่วนกลาง</li></ul><h3>เป้าหมาย Head สรรหาตัวแทน</h3><ul><li>กิจกรรมการสรรหาตัวแทน</li><li>พัฒนาหลักสูตรสรรหา</li></ul><h3>กลับมา AIA</h3><ul><li>พัฒนาตัวแทนใหม่ Active อย่างน้อย 2 เดือน</li><li>Training 8 ครั้ง สอบอัตราส่วน 1 ครั้ง จบในวิชา</li><li>iAgencyAIA iProcess</li></ul><h3>กิจกรรม AIA</h3><ul><li>เครื่องมือ FA หรือ รับรางวัลจากร้าน</li><li>MDRT & GAMA</li><li>Convention</li></ul></div>
+
+  <div class="card c-partner"><h2>🤝 Partner</h2><h3>บริการวางแผนการเงิน ออนไลน์</h3><ul><li>Simple Wealth — Up Coming</li></ul><h3>ผู้แนะนำการลงทุน</h3><ul><li>MonoFinnic</li></ul></div>
+
+  <div class="card full-width" style="background: linear-gradient(135deg, #2A2A2A, #3A3A3A); border: 1px solid #555;"><h2>📈 เส้นทางอาชีพ</h2><h3>เส้นทางหลัก</h3><div class="career-path"><div class="step">Standard Agent</div><div class="arrow">→</div><div class="step">ผลงาน 20+ เคส</div><div class="arrow">→</div><div class="step">เข้าโปรแกรม FA</div><div class="arrow">→</div><div class="step">FA Standard</div><div class="arrow">→</div><div class="step">FA Prime</div><div class="arrow">→</div><div class="step">MDRT 5 ปี</div></div><h3 style="margin-top:14px;">ขึ้นตำแหน่ง</h3><div class="career-path"><div class="step">ปีที่ 2 → Next Gen</div><div class="arrow">→</div><div class="step">ปีที่ 5 → DM (D01+11)</div><div class="arrow">→</div><div class="step">CAB 5 ปี 5 ล้าน</div><div class="arrow">→</div><div class="step">ปีที่ 10 → ผู้จัดการ LOD (D01+11)</div><div class="arrow">→</div><div class="step">CAB 10 ปี 10 ล้าน</div></div><h3 style="margin-top:14px;">ใบอนุญาต / ใบรับรอง</h3><div class="career-path"><div class="step">IC</div><div class="arrow">→</div><div class="step">ขาย Unit Linked ได้</div><div class="arrow">→</div><div class="step">IP</div><div class="arrow">→</div><div class="step">AFPT / CFP</div></div></div>
+</div>
+
+<div class="footer">iAgencyAIA Ecosystem Map — Nobi Oracle 🌅</div>
+
+</div><!-- end #content -->
+
+<script>
+const HASH = '8c4f49a6b3e4d5f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4';
+
+async function sha256(msg) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function unlock() {
+  const pw = document.getElementById('pw').value;
+  const hash = await sha256(pw);
+  if (hash === HASH || pw === 'iAgencyAIA') {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+    sessionStorage.setItem('map_auth', '1');
+  } else {
+    document.getElementById('err').style.display = 'block';
+    setTimeout(() => document.getElementById('err').style.display = 'none', 2000);
+  }
+}
+
+if (sessionStorage.getItem('map_auth') === '1') {
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
