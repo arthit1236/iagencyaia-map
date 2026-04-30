@@ -98,6 +98,18 @@ section{padding:100px 24px}.section-dark{background:var(--dark);color:var(--whit
 .qual-sub h4{font-size:.9rem;font-weight:600;color:var(--red);margin-bottom:6px}
 .qual-sub p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:8px}
 
+/* Accordion */
+.accordion{border:1px solid #e5e5e5;border-radius:16px;overflow:hidden;margin-bottom:16px}
+.accordion-dark{border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;margin-bottom:16px}
+.accordion summary{padding:20px 24px;font-size:1rem;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.accordion summary:hover{background:rgba(0,0,0,.02)}
+.accordion-dark summary:hover{background:rgba(255,255,255,.03)}
+.accordion summary::after{content:'＋';font-size:1.2rem;color:var(--red);transition:transform .3s}
+.accordion[open] summary::after{content:'−'}
+.accordion-body{padding:0 24px 24px;font-size:.88rem;line-height:1.8;color:var(--gray)}
+.accordion-dark .accordion-body{color:rgba(255,255,255,.6)}
+.section-img{width:100%;max-width:600px;border-radius:16px;margin:20px auto;display:block}
+
 footer{text-align:center;padding:40px 24px;font-size:.75rem;color:var(--gray);background:var(--dark)}
 footer a{color:var(--red);text-decoration:none}
 
@@ -180,10 +192,10 @@ footer a{color:var(--red);text-decoration:none}
     <div class="section-title">สิ่งที่ผมตั้งใจทุ่มเท เพื่อพัฒนาทีมงาน</div>
     <p style="font-size:1rem;color:var(--gray);max-width:640px;margin:0 auto 48px;line-height:1.7">สร้างระบบที่สามารถทำซ้ำ (Scalable) เพื่อส่งต่อมาตรฐานความสำเร็จ ผ่าน Roadmap เฉพาะบุคคล เข้ากับเครื่องมือเอกสิทธิ์ของ iAgencyAIA เพื่อสร้างแรงเหวี่ยงให้ทีมเติบโตไปได้อย่างมั่นคง ด้วยวัฒนธรรม "จริงใจ ลงมือ อยู่ด้วยกัน"</p>
     <div class="benefit-grid">
-      <div class="benefit"><div class="benefit-icon">🌐</div><h3>"iAgency FA Tools"</h3><p>ระบบการตลาดออนไลน์ ที่ได้ผลจริง</p></div>
-      <div class="benefit"><div class="benefit-icon">📋</div><h3>งานเอกสาร หลังบ้าน จริงจัง</h3><p>ทีม Admin ส่วนกลางจัดการให้</p></div>
-      <div class="benefit"><div class="benefit-icon">🗺️</div><h3>ออกแบบแผนเฉพาะบุคคล</h3><p>iJourney + Roadmap เฉพาะตัว</p></div>
-      <div class="benefit"><div class="benefit-icon">💛</div><h3>สังคมคุณภาพ สำนักงาน MDRT</h3><p>"จริงใจ ลงมือ อยู่ด้วยกัน"</p></div>
+      <div class="benefit"><img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Cover_Agent/สมัครตัวแทนประกันชีวิต_FA_ที่ไหนดี.webp?v=202405291424" style="width:80px;height:80px;border-radius:12px;object-fit:cover;margin-bottom:12px"><h3>"iAgency FA Tools"</h3><p>ระบบการตลาดออนไลน์ ที่ได้ผลจริง</p></div>
+      <div class="benefit"><img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Cover_Agent/วิธีสมัครเป็น_ตัวแทน_เอไอเอ_AIA_FA.webp?v=202405291424" style="width:80px;height:80px;border-radius:12px;object-fit:cover;margin-bottom:12px"><h3>งานเอกสาร หลังบ้าน จริงจัง</h3><p>ทีม Admin ส่วนกลางจัดการให้</p></div>
+      <div class="benefit"><img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Cover_Agent/คุณสมบัติ_ตัวแทนประกันชีวิต.webp?v=202405291424" style="width:80px;height:80px;border-radius:12px;object-fit:cover;margin-bottom:12px"><h3>ออกแบบแผนเฉพาะบุคคล</h3><p>iJourney + Roadmap เฉพาะตัว</p></div>
+      <div class="benefit"><img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Cover_Agent/วัฒนธรรม_ทีมงาน_iAgencyAIA.webp?v=202405291424" style="width:80px;height:80px;border-radius:12px;object-fit:cover;margin-bottom:12px"><h3>สังคมคุณภาพ สำนักงาน MDRT</h3><p>"จริงใจ ลงมือ อยู่ด้วยกัน"</p></div>
     </div>
   </div>
 </section>
@@ -258,6 +270,7 @@ footer a{color:var(--red);text-decoration:none}
     <div class="section-label">โปรแกรม AIA FA</div>
     <div class="section-title">AIA FA มี 3 โปรแกรม</div>
     <div class="section-sub-white">AIA FA (Financial Advisor) เป็นโปรแกรมเพื่อพัฒนาศักยภาพของตัวแทนประกันชีวิตรุ่นใหม่ ให้ประสบความสำเร็จในอาชีพอย่างเป็นมืออาชีพระดับ MDRT</div>
+    <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Blogs/โครงการ_AIA_FA_Standard_FA_Prime.webp?v=202405291424" class="section-img" style="max-width:500px;margin-bottom:32px" alt="AIA FA Standard & Prime">
     <div class="program-grid">
       <div class="program" style="border-color:rgba(255,255,255,.1)">
         <h3>Standard Agent (SA)</h3>
@@ -295,6 +308,41 @@ footer a{color:var(--red);text-decoration:none}
       </div>
     </div>
     <p style="text-align:center;color:rgba(255,255,255,.4);font-size:.8rem;margin-top:24px">สนับสนุนให้ตัวแทนทุกคนเข้าร่วมโปรแกรม AIA FA — แต่ละโปรแกรมมีแผนรับรองรายได้ที่ตัวแทนและผู้บริหารหน่วยร่วมกันกำหนด</p>
+
+    <div style="margin-top:40px">
+      <details class="accordion-dark">
+        <summary>รายละเอียด Standard Agent (SA)</summary>
+        <div class="accordion-body">
+          <p>โปรแกรมฝึกอบรมสำหรับผู้สนใจเป็นตัวแทน AIA แบบเน้นการศึกษาข้อมูลด้วยตนเองตามเรื่องที่สนใจ</p>
+          <p><strong>คุณสมบัติ:</strong> ผู้ที่บรรลุนิติภาวะ</p>
+          <p><strong>ระยะเวลา:</strong> ไม่มีกำหนด (Self-Paced Learning)</p>
+          <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์ตัวแทน_AIA.jpg?v=202405291424" class="section-img" alt="ผลประโยชน์ตัวแทน AIA">
+          <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์ตัวแทน_AIA_MDRT.jpg?v=202405291424" class="section-img" alt="ผลประโยชน์ MDRT">
+        </div>
+      </details>
+      <details class="accordion-dark">
+        <summary>รายละเอียด AIA FA Standard — แผนรับรองรายได้ 15,000-30,000 บ./เดือน</summary>
+        <div class="accordion-body">
+          <p>โปรแกรมฝึกอบรมสำหรับผู้ที่ต้องการเป็นที่ปรึกษาการเงินมืออาชีพ (ตัวแทน Full Time) เป้าหมายรายได้ 50,000-100,000 บาทต่อเดือน ขึ้นไป</p>
+          <p><strong>คุณสมบัติ:</strong> อายุไม่เกิน 50 ปี จบปริญญาตรี มีทักษะการสื่อสาร บุคลิกภาพดี เป็นตัวแทนไม่เกิน 12 เดือนก่อนสมัคร</p>
+          <p><strong>ระยะเวลา:</strong> 7-12 เดือน</p>
+          <p><strong>แผนรับรองรายได้:</strong> 15,000-30,000 บาทต่อเดือน</p>
+          <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์ตัวแทน_AIA_FA_Standard_MDRT.jpg?v=202405291424" class="section-img" alt="ผลประโยชน์ FA Standard">
+          <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์จากการเป็นตัวแทน_FA.jpg?v=202405291424" class="section-img" alt="ผลประโยชน์ FA">
+        </div>
+      </details>
+      <details class="accordion-dark">
+        <summary>รายละเอียด AIA FA Prime — แผนรับรองรายได้ 30,000-100,000 บ./เดือน</summary>
+        <div class="accordion-body">
+          <p>โปรแกรมฝึกอบรมสำหรับผู้ที่ต้องการเป็นที่ปรึกษาการเงินมืออาชีพ ที่มีประสบการณ์ทำงาน หรือจบสาขาการเงิน เป้าหมายรายได้ 100,000-200,000 บาทต่อเดือน ขึ้นไป</p>
+          <p><strong>คุณสมบัติ:</strong> อายุไม่เกิน 45 ปี จบปริญญาตรีขึ้นไป ประสบการณ์ 2 ปี+ หรือจบสาขาการเงิน มี IC License มีทักษะการสื่อสาร</p>
+          <p><strong>ระยะเวลา:</strong> 6 เดือน (Intensive Program)</p>
+          <p><strong>แผนรับรองรายได้:</strong> 30,000-100,000 บาทต่อเดือน</p>
+          <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์ตัวแทน_AIA_FA_Prime_MDRT.jpg?v=202405291424" class="section-img" alt="ผลประโยชน์ FA Prime">
+          <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์จากการเป็นตัวแทน_FA__1_.jpg?v=202405291424" class="section-img" alt="ผลประโยชน์ FA">
+        </div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -304,6 +352,7 @@ footer a{color:var(--red);text-decoration:none}
     <div class="section-label">โบนัสพิเศษ</div>
     <div class="section-title">CAB 5 ปี 5 ล้านบาท</div>
     <p style="font-size:1rem;color:var(--gray);max-width:600px;margin:0 auto 40px;line-height:1.7">รับโบนัสพิเศษ 5 ล้านบาท (Career Achievement Bonus) สำหรับตัวแทนที่เข้าโปรแกรม AIA FA</p>
+    <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Cover_Agent/AIA_FA_CAB_5__2024.webp?v=202405291424" class="section-img" style="max-width:500px;margin-bottom:32px" alt="CAB 5 ล้าน">
     <div class="features-light" style="max-width:800px;margin:0 auto">
       <div class="feature-light" style="text-align:center"><div style="font-size:2rem;margin-bottom:12px">🏆</div><h3>พิชิตคุณวุฒิ MDRT</h3><p>ทำผลงานต่อเนื่อง 5 ปี (LIMRA > 85%)</p></div>
       <div class="feature-light" style="text-align:center"><div style="font-size:2rem;margin-bottom:12px">📜</div><h3>ถือ IC License</h3><p>สอบผ่านภายใน 12 เดือนแรกหลังเข้าโปรแกรม FA</p></div>
@@ -313,19 +362,7 @@ footer a{color:var(--red);text-decoration:none}
   </div>
 </section>
 
-<!-- ===== BENEFIT IMAGES ===== -->
-<section class="section-dark">
-  <div class="container reveal" style="text-align:center">
-    <div class="section-label">ผลประโยชน์ตัวแทน</div>
-    <div class="section-title">เส้นทางอาชีพ และ แผนรับรองรายได้</div>
-    <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์ตัวแทน_AIA.jpg?v=202405291424" alt="ผลประโยชน์ตัวแทน AIA" class="img-full" style="margin-top:40px">
-    <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์จากการเป็นตัวแทน_FA.jpg?v=202405291424" alt="ผลประโยชน์จากการเป็นตัวแทน FA" class="img-full">
-    <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์ตัวแทน_AIA_FA_Standard_MDRT.jpg?v=202405291424" alt="ผลประโยชน์ FA Standard MDRT" class="img-full">
-    <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์ตัวแทน_AIA_FA_Prime_MDRT.jpg?v=202405291424" alt="ผลประโยชน์ FA Prime MDRT" class="img-full">
-    <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์ตัวแทน_AIA_MDRT.jpg?v=202405291424" alt="ผลประโยชน์ MDRT" class="img-full">
-    <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/DefaultData/ผลประโยชน์จากการเป็นตัวแทน_FA__1_.jpg?v=202405291424" alt="ผลประโยชน์จากการเป็นตัวแทน" class="img-full">
-  </div>
-</section>
+<!-- Benefit images moved to accordion details above -->
 
 <!-- ===== CAREER PATH ===== -->
 <section>
@@ -353,8 +390,9 @@ footer a{color:var(--red);text-decoration:none}
     <div class="section-title" style="margin-bottom:12px">หากคุณมีคุณสมบัติ 5 ข้อนี้</div>
     <div class="section-sub-white">ชัดเจนว่าคุณคือ FA ที่เราตามหา — มาร่วมเปลี่ยนทุกโอกาสและทุกความฝันให้เป็นความจริงที่ยั่งยืน บนเส้นทางที่เป็นระบบที่สุดไปด้วยกัน</div>
 
-    <div class="qual-item">
-      <h3>มีเป้าหมายในชีวิต และ เป้าหมายทางการเงิน ที่ชัดเจน</h3>
+    <details class="accordion-dark" open>
+      <summary>1. มีเป้าหมายในชีวิต และ เป้าหมายทางการเงิน ที่ชัดเจน</summary>
+      <div class="accordion-body">
       <p>เราไม่ได้มองหาแค่คนทั่วไป แต่เรามองหา "คนที่มีความฝัน" ที่ต้องการมีเส้นทางสู่ความสำเร็จที่เป็นรูปธรรม</p>
       <p><strong>ด้วยแนวคิด 3i:</strong></p>
       <div class="qual-sub"><h4>💰 Income — รายได้ที่ไร้เพดาน</h4><p>ตั้งแต่ Part-time 20,000-50,000 บ./เดือน ไปจนถึงหลักล้านบาทตั้งแต่ปีแรก</p></div>
@@ -362,36 +400,57 @@ footer a{color:var(--red);text-decoration:none}
       <div class="qual-sub"><h4>💎 Impact — สร้างคุณค่า</h4><p>การสร้างคุณค่าและส่งต่อความมั่นคงทางการเงินที่เป็นประโยชน์ต่อผู้คนในวงกว้าง</p></div>
     </div>
 
-    <div class="qual-item">
-      <h3>มองเห็นโอกาสในอาชีพ และ มีต้นทุนทางความสัมพันธ์</h3>
+    </div></details>
+    <details class="accordion-dark">
+      <summary>2. มองเห็นโอกาสในอาชีพ และ มีต้นทุนทางความสัมพันธ์</summary>
+      <div class="accordion-body">
       <p>ในยุคที่มีแต่ความไม่แน่นอน อาชีพตัวแทนประกันชีวิตและที่ปรึกษาการเงินเติบโตขึ้นอย่างมาก จากการสร้างหลักประกันความมั่นคงให้กับผู้คน</p>
       <div class="qual-sub"><h4>🤝 ต้นทุนทางสายสัมพันธ์</h4><p>ความเชื่อใจคือทางลัดสู่ความสำเร็จ สายสัมพันธ์ที่ดีที่คุณมีอยู่คือ "เชื้อเพลิง" ชั้นดีที่จะช่วยให้ตัวแทนใหม่เริ่มต้นได้เร็วกว่าใคร</p></div>
       <div class="qual-sub"><h4>🛠️ iAgencyAIA FA Tools</h4><p>เครื่องมือการตลาดออนไลน์ที่ออกแบบมาโดยเฉพาะ ช่วยให้ Personal Branding และการนำเสนอเป็นมืออาชีพ</p></div>
       <div class="qual-sub"><h4>🌍 โอกาสที่ไร้ขีดจำกัด</h4><p>ขยายฐานลูกค้าจากคนรู้จัก ไปสู่กลุ่มลูกค้าคุณภาพบนโลกออนไลน์ได้อย่างเป็นระบบ</p></div>
     </div>
 
-    <div class="qual-item">
-      <h3>มีความรับผิดชอบ และ ความสำเร็จที่ตนเองภูมิใจ</h3>
+    </div></details>
+    <details class="accordion-dark">
+      <summary>3. มีความรับผิดชอบ และ ความสำเร็จที่ตนเองภูมิใจ</summary>
+      <div class="accordion-body">
       <p>ความรับผิดชอบคือสะพานเชื่อมระหว่าง "เป้าหมาย" และ "ความสำเร็จ" — เราให้ความสำคัญกับทัศนคติที่มุ่งมั่นและวินัยในการทำงาน</p>
       <div class="qual-sub"><h4>🗺️ วิเคราะห์ด้วย iJourney</h4><p>วิเคราะห์พื้นฐานและออกแบบแผนงานเบื้องต้นให้สอดคล้องกับ "จุดแข็ง" และ "ความถนัด" เฉพาะตัวคุณ</p></div>
       <div class="qual-sub"><h4>🎯 Personalized Planning</h4><p>สูตรสำเร็จของแต่ละคนไม่เหมือนกัน แผนงานจะถูกปรับจูนลงรายละเอียดเชิงลึกอีกครั้งหลังเข้าร่วมทีม</p></div>
       <div class="qual-sub"><h4>📈 ต่อยอดความสำเร็จ</h4><p>เปลี่ยนความรับผิดชอบที่คุณมีให้กลายเป็นผลลัพธ์ที่จับต้องได้ ทั้งรายได้และคุณวุฒิระดับสากล MDRT</p></div>
     </div>
 
-    <div class="qual-item">
-      <h3>มีทักษะการสื่อสาร มนุษย์สัมพันธ์ดี และหัวใจนักบริการ</h3>
+    </div></details>
+    <details class="accordion-dark">
+      <summary>4. มีทักษะการสื่อสาร มนุษย์สัมพันธ์ดี และหัวใจนักบริการ</summary>
+      <div class="accordion-body">
       <p>ทักษะการสื่อสารและใจรักบริการคือ "เครื่องเร่งความเร็ว" (Accelerator) ที่จะเปลี่ยนโอกาสและสายสัมพันธ์ให้กลายเป็นความไว้วางใจที่ยั่งยืน</p>
       <div class="qual-sub"><h4>💛 สื่อสารด้วยความจริงใจ</h4><p>ช่วยให้คุณสื่อสารอย่างถูกต้อง โปร่งใส และจริงใจ เพื่อสร้างเกราะป้องกันความเสี่ยงที่มั่นคงที่สุดให้กับลูกค้า</p></div>
       <div class="qual-sub"><h4>💪 ลงมือบริการด้วยหัวใจ</h4><p>การบริการของเราคือการ "ลงมือ" แก้ปัญหาและวางแผนอย่างมืออาชีพ ทักษะมนุษย์สัมพันธ์ที่ดีจะช่วยให้คุณเข้าถึงความต้องการที่แท้จริงของลูกค้า</p></div>
       <div class="qual-sub"><h4>👨‍👩‍👧‍👦 เติบโตอยู่ด้วยกัน</h4><p>เมื่อคุณดูแลลูกค้าด้วยหัวใจ ลูกค้าจะกลายเป็นครอบครัวที่พร้อมจะเติบโตและสนับสนุนคุณไปตลอดเส้นทาง</p></div>
     </div>
 
-    <div class="qual-item">
-      <h3>มีวินัยสม่ำเสมอ พร้อมจัดสรรเวลา เพื่อสร้างผลลัพธ์</h3>
+    </div></details>
+    <details class="accordion-dark">
+      <summary>5. มีวินัยสม่ำเสมอ พร้อมจัดสรรเวลา เพื่อสร้างผลลัพธ์</summary>
+      <div class="accordion-body">
       <p>วินัยคือการตัดสินใจว่า "อะไรสำคัญที่สุด" — เราให้ความสำคัญกับ "ต้นทุนทางเวลา" ของทุกคน เพราะเรารู้ว่าเวลาของคุณมีค่าและไม่สามารถเรียกคืนได้</p>
       <div class="qual-sub"><h4>⏰ การจัดสรรเวลาเพื่อความสำเร็จ</h4><p>ระบบของเราจะช่วยให้คุณบริหารเวลาที่ทุ่มเทลงไปให้เกิดประสิทธิภาพสูงสุด ไม่ว่าจะเป็น Part-time หรือ Full-time</p></div>
       <div class="qual-sub"><h4>🔍 ระบบพิสูจน์ความจริง</h4><p>ถูกออกแบบมาเพื่อให้คุณได้คำตอบที่ชัดเจน <strong>ภายใน 3-6 เดือน</strong> ว่า "เหมาะ" หรือ "ไม่เหมาะ" กับอาชีพนี้</p></div>
       <div class="qual-sub"><h4>✅ มั่นใจว่าไม่สูญเปล่า</h4><p>เวลาที่คุณทุ่มเทให้กับการเรียนรู้และลงมือทำร่วมกับทีม จะเป็นประสบการณ์ที่คุ้มค่าและนำไปต่อยอดได้ในทุกสายอาชีพ</p></div>
+    </div></details>
+  </div>
+</section>
+
+<!-- ===== TEAM ACTIVITY ===== -->
+<section style="text-align:center">
+  <div class="container reveal">
+    <div class="section-label">กิจกรรมตัวแทน</div>
+    <div class="section-title">บรรยากาศ โปรแกรม FA / ประชุมทีม / รับรางวัล</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:32px">
+      <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Team/Agent-AIA-iAgencyAIA.webp?v=202405291424" style="width:100%;border-radius:16px;aspect-ratio:16/10;object-fit:cover" alt="ทีม iAgencyAIA">
+      <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Team/iAgencyAIA-FA-Prime-Graduated.webp?v=202405291424" style="width:100%;border-radius:16px;aspect-ratio:16/10;object-fit:cover" alt="FA Prime Graduated">
+      <img src="https://image.makewebeasy.net/makeweb/0/8nRtllDs7/Info_Profile/Certified_iAgencyAIA.webp?v=202405291424" style="width:100%;border-radius:16px;aspect-ratio:16/10;object-fit:cover" alt="Certified iAgencyAIA">
     </div>
   </div>
 </section>
